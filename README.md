@@ -104,11 +104,11 @@ mosquitto_pub -h localhost -t 'envira/pt/sensores/comandos/Lisboa_-_Campus_IPLus
 
 ## Verification
 
-Checked with Java 17 and Maven against a local MQTT broker:
+Checked from a fresh clone with Java 17 and Maven, against a local Eclipse Mosquitto 2.0 broker, using the commands in this README:
 
 - the project compiles with `mvn compile`;
 - after `ATIVAR` commands, all seven sensors published to their data topics;
-- an `intervalo` of 1500 ms roughly doubled the publishing rate of that sensor, and `DESATIVAR` stopped it;
+- an `intervalo` of 1500 ms roughly doubled the publishing rate of that sensor, and `DESATIVAR` stopped it (both sent with the `mosquitto_pub` commands above);
 - the `hash_validacao` value of every captured message matched a SHA-256 recomputed from the payload.
 
 There are no automated unit tests in this project.
